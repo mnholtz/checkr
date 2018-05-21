@@ -9,4 +9,6 @@ A trackr for all your tracking needs, developed to satisfy the CS183 (Web Develo
 4. Run the server by going back up to the ```web2py``` directory, and running ```python web2py.py```
 
 ## Built With
-* [Web2py](http://www.web2py.com/) - The web framework used
+* [Web2py](http://www.web2py.com/) - Web framework
+* [Vue.js](https://vuejs.org/) - Javascript framework
+* [Boostrap4](https://getbootstrap.com/) - CSS framework
