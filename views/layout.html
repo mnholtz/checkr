@@ -36,18 +36,17 @@
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">checkr</a>
+      <a class="navbar-brand" href="/checkr/">checkr</a>
       <div class="collapse navbar-collapse">    
         {{if 'auth' in globals():}}
-        <ul class="navbar-nav navbar-right ml-auto">
+        <ul class="navbar-nav navbar-right ml-auto">  
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {{if auth.user:}}{{=auth.user.first_name}}{{else:}}login{{pass}}
+	          <img src="{{if auth.user:}}{{=URL(auth.user.profile_picture)}}{{pass}}"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               {{if auth.user:}}
-              <a class="dropdown-item" href="{{=URL('default','user/profile')}}">{{=T('Profile')}}</a>
-              <a class="dropdown-item" href="{{=URL('default','user/change_password')}}">{{=T('Change Password')}}</a>
+              <a class="dropdown-item" href="{{=URL('default','user/profile')}}">{{=T('Settings')}}</a>
               <a class="dropdown-item" href="{{=URL('default','user/logout')}}">{{=T('Logout')}}</a>
               {{else:}}
               <a class="dropdown-item" href="{{=URL('default','user/login')}}">{{=T('Login')}}</a>
@@ -55,6 +54,9 @@
               <a class="dropdown-item" href="{{=URL('default','user/request_password')}}">{{=T('Lost Password')}}</a>
               {{pass}}
             </div>
+          </li>
+          <li class="nav-item"> 
+          	{{if auth.user:}}{{=auth.user.username}}{{else:}}login{{pass}}
           </li>
         </ul>        
         {{pass}}
@@ -67,9 +69,9 @@
     <!-- Main ========================================= -->
     <!-- Begin page content -->
     <div class="container-fluid main-container">
-		        {{block center}}
-		        {{include}}
-		        {{end}}
+		    {{block center}}
+		    {{include}}
+		    {{end}}
     </div>
 
     {{block footer}}   
