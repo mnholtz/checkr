@@ -24,6 +24,7 @@
     <!-- All JavaScript at the bottom, except for Modernizr which enables
          HTML5 elements & feature detects -->
     <script src="{{=URL('static','js/modernizr-2.8.3.min.js')}}"></script>
+    <script src="{{=URL('static','css/checkr.css')}}"></script>
     <!-- Favicons -->
 	<script src="https://use.fontawesome.com/eaff2cebc6.js"></script>
     {{include 'web2py_ajax.html'}} <!-- this includes jquery.js, calendar.js/.css and web2py.js -->
@@ -66,28 +67,14 @@
     <!-- Main ========================================= -->
     <!-- Begin page content -->
     <div class="container-fluid main-container">
-	    <div class="row">
-		      <div class="col-5">
 		        {{block center}}
 		        {{include}}
 		        {{end}}
-		      </div>
-		      <div class="col-5">
-			      <h1>Navigation</h1>
-			      <ul>
-				      <li>Temperature</li>
-				      <li>Period</li>
-				      <li>Calories</li>
-				      <li>Exercise</li>
-				      <li>Nutrition</li>
-			      </ul>
-		      </div>
-	    </div>
     </div>
 
-    {{block footer}} <!-- this is default footer -->      
+    {{block footer}}   
     <footer class="footer">
-      <div class="container-fluid center">
+      <div class="container-fluid" align="center">
 	  	<a href="https://github.com/mnholtz/checkr"><i class="fa fa-github fa-3x"></i></a>
       </div>
     </footer>

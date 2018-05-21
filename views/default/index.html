@@ -1,8 +1,21 @@
 {{extend 'layout.html'}}
 
-{{if 'message' in globals():}}
-<h2>{{=message}}</h2>
-<p>visualization will live here</p>
+<div class="row justify-content-center">
+	<div class="col-4 m-3">
+		{{if 'message' in globals():}}
+		<h2>{{=message}}</h2>
+		<p>visualization will live here</p>
+	</div>
+	<div class="col-4 m-3">
+		<h2>Navigation</h2>
+		<ul>
+			<li>navigation</li>
+			<li>will</li>
+			<li>live</li>
+			<li>here</li>
+		</ul>
+	</div>
+</div>
 {{elif 'content' in globals():}}
 {{=content}}
 {{else:}}
