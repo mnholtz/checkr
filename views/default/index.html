@@ -4,6 +4,7 @@
 	<div class="col-4 m-3">
 		{{if 'message' in globals():}}
 		<h2>{{=message}}</h2>
+
 		<p>visualization will live here</p>
 	</div>
 	<div class="col-4 m-3">
@@ -21,6 +22,3 @@
 {{else:}}
 {{=BEAUTIFY(response._vars)}}
 {{pass}}
-
-
-

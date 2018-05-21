@@ -25,6 +25,9 @@
          HTML5 elements & feature detects -->
     <script src="{{=URL('static','js/modernizr-2.8.3.min.js')}}"></script>
     <script src="{{=URL('static','css/checkr.css')}}"></script>
+
+    <!-- include vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <!-- Favicons -->
 	<script src="https://use.fontawesome.com/eaff2cebc6.js"></script>
     {{include 'web2py_ajax.html'}} <!-- this includes jquery.js, calendar.js/.css and web2py.js -->
@@ -37,7 +40,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="#">checkr</a>
-      <div class="collapse navbar-collapse">    
+      <div class="collapse navbar-collapse">
         {{if 'auth' in globals():}}
         <ul class="navbar-nav navbar-right ml-auto">
           <li class="nav-item dropdown">
@@ -56,12 +59,12 @@
               {{pass}}
             </div>
           </li>
-        </ul>        
+        </ul>
         {{pass}}
       </div>
     </nav>
 
-    <!-- Masthead ===================================== -->    
+    <!-- Masthead ===================================== -->
     {{block header}}
     {{end}}
     <!-- Main ========================================= -->
@@ -72,7 +75,7 @@
 		        {{end}}
     </div>
 
-    {{block footer}}   
+    {{block footer}}
     <footer class="footer">
       <div class="container-fluid" align="center">
 	  	<a href="https://github.com/mnholtz/checkr"><i class="fa fa-github fa-3x"></i></a>
