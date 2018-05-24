@@ -12,4 +12,4 @@ A trackr for all your tracking needs, developed to satisfy the CS183 (Web Develo
 * [Web2py](http://www.web2py.com/) - Web framework
 * [Vue.js](https://vuejs.org/) - Javascript framework
 * [Boostrap4](https://getbootstrap.com/) - CSS framework
-* [vue-heatmap](https://github.com/DominikAngerer/vue-heatmap) - A Vue.js heatmap library
+* [Cal-heatmap](http://cal-heatmap.com/) - Heatmap Library
