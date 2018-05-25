@@ -4,7 +4,49 @@
 	<div class="col-4 m-3">
 		{{if 'message' in globals():}}
 		<h2>{{=message}}</h2>
-		<p>visualization will live here</p>
+    <div class="heat-map-container" style="margin:10px;">
+      <div style="float:none; margin-bottom:20px;" >
+        <button class="btn" id="cal-heatmap-previous" style="background-color:#BBC4C6;">Previous</button>
+        <button class="btn" id="cal-heatmap-next" style="background-color:#BBC4C6;">Next</button>
+      </div>
+      <!-- <div id="cal-heatmap" style="position:relative;" ></div> -->
+      <div id="cal-heatmap" style="position:relative; max-height: 800px; max-width:300px; overflow: auto;" >
+        <script type="text/javascript">
+        	var cal = new CalHeatMap();
+        	cal.init({
+                  //  itemSelector: "#verticalOrientation-b",
+                //    itemSelector: "#tooltip-b",
+                    itemSelector: "#cal-heatmap",
+                    domain: "month",
+                    subDomain: "x_day",
+                    cellSize: 30,
+                    cellPadding: 3,
+                    cellRadius: 15,
+                    domainGutter: 10,
+                    subDomainTextFormat: "%d",
+                    domainDynamicDimension: false,
+                    verticalOrientation: true,
+                    tooltip: true,
+                  	nextSelector: "#cal-heatmap-next",
+                  	previousSelector: "#cal-heatmap-previous",
+                  	itemNamespace: "domainDynamicDimension",
+                  //  verticalOrientation: true,
+                    // itemSelector: "#tooltip-b",
+                  //  tooltip: true,
+                    label: {
+  		                 position: "top"
+  	                },
+                    onClick: function(date, nb) {
+                      console.log("you clicked on " + date);
+                  		$("#cal-heatmap-placeholder").html("You just clicked <br/>on <b>" +
+                  			date + "</b> <br/>with <b>" +
+                  			(nb === null ? "unknown" : nb) + "</b> items"
+                  		);
+                  	}
+          });
+        </script>
+      </div>
+    </div>
 	</div>
 	<div class="col-4 m-3">
 		<h2>Navigation</h2>
@@ -14,13 +56,11 @@
 			<li>live</li>
 			<li>here</li>
 		</ul>
+    <div class="display_user_info" id="cal-heatmap-placeholder"></div>
 	</div>
-</div>
+
 {{elif 'content' in globals():}}
 {{=content}}
 {{else:}}
 {{=BEAUTIFY(response._vars)}}
 {{pass}}
-
-
-
