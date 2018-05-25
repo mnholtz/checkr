@@ -91,8 +91,10 @@ auth = Auth(db, host_names=configuration.get('host.names'))
 # -------------------------------------------------------------------------
 # create all tables needed by auth, maybe add a list of extra fields
 # -------------------------------------------------------------------------
-auth.settings.extra_fields['auth_user'] = []
-auth.define_tables(username=False, signature=False)
+auth.settings.extra_fields['auth_user'] = [Field('profile_picture', 'upload')]
+auth.define_tables(username=True, signature=False)
+db.auth_user.first_name.readable = db.auth_user.first_name.writable = False
+db.auth_user.last_name.readable = db.auth_user.last_name.writable = False
 
 # -------------------------------------------------------------------------
 # configure email

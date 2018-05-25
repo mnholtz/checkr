@@ -1,12 +1,24 @@
 {{extend 'layout.html'}}
 
-<h2>
-{{=T('Sign Up') if request.args(0) == 'register' else T('Log In') if request.args(0) == 'login' else T(request.args(0).replace('_',' ').title())}}
-</h2>
-
-<div class="container">
-    <div class="row">
-        <div id="web2py_user_form" class="col-lg-6">
+    <div class="row justify-content-center">
+	    <div class="col-4">
+			<h2>Settings</h2>
+			<ul>
+			<li><a href="/checkr/default/user/profile">
+				Profile
+			</a></li>
+			<li><a href="/checkr/default/user/change_password">
+				Change Password
+			</a></li>
+			<li><a href="#">
+				App Credentials
+			</a></li>
+			</ul>
+	    </div>
+        <div id="web2py_user_form" class="col-4">
+	    <h2>
+			{{=T('Sign Up') if request.args(0) == 'register' else T('Log In') if request.args(0) == 'login' else T(request.args(0).replace('_',' ').title())}}
+		</h2>
         {{
         if request.args(0)=='login':
             if not 'register' in auth.settings.actions_disabled:
@@ -20,7 +32,6 @@
         }}
         </div>
     </div>
-</div>
 
 
 {{block page_js}}
