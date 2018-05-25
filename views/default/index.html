@@ -8,6 +8,7 @@
       <div style="float:none; margin-bottom:20px;" >
         <button class="btn" id="cal-heatmap-previous" style="background-color:#BBC4C6;">Previous</button>
         <button class="btn" id="cal-heatmap-next" style="background-color:#BBC4C6;">Next</button>
+        <div class="display_legend" id="legend"></div>
       </div>
       <!-- <div id="cal-heatmap" style="position:relative;" ></div> -->
       <div id="cal-heatmap" style="position:relative; max-height: 800px; max-width:300px; overflow: auto;" >
@@ -19,14 +20,14 @@
                     itemSelector: "#cal-heatmap",
                     domain: "month",
                     subDomain: "x_day",
-                    cellSize: 30,
-                    cellPadding: 3,
-                    cellRadius: 15,
+                    cellSize: 30, legendCellSize: 15,
+                    cellPadding: 3, legendCellPadding: 3,
                     domainGutter: 10,
                     subDomainTextFormat: "%d",
                     domainDynamicDimension: false,
                     verticalOrientation: true,
                     tooltip: true,
+                    legendVerticalPosition: "left",
                   	nextSelector: "#cal-heatmap-next",
                   	previousSelector: "#cal-heatmap-previous",
                   	itemNamespace: "domainDynamicDimension",
@@ -56,6 +57,73 @@
 			<li>live</li>
 			<li>here</li>
 		</ul>
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="heading-temperature">
+          <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-temperature" aria-expanded="true" aria-controls="collapse-temperature">
+              Temperature
+            </button>
+          </h5>
+        </div>
+
+        <div id="collapse-temperature" class="collapse" aria-labelledby="heading-temperature" data-parent="#accordionExample">
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="category-data-input">Temperature</label>
+                <input type="float" class="form-control" id="category-data-input" placeholder="Enter your temperature">
+              </div>
+              <div class="form-group">
+                <label for="category-date-input">Date</label>
+                <input type="date" class="form-control" id="category-date-input" placeholder="Enter the date">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="heading-period">
+          <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-period" aria-expanded="true" aria-controls="collapse-period">
+              Period
+            </button>
+          </h5>
+        </div>
+
+        <div id="collapse-period" class="collapse" aria-labelledby="heading-period" data-parent="#accordionExample">
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="category-date-input">Start Date</label>
+                <input type="date" class="form-control" id="category-data-input" placeholder="Start Date">
+              </div>
+              
+              <div class="form-group">
+                <label for="category-date-input">End Date</label>
+                <input type="date" class="form-control" id="category-date-input" placeholder="End Date">
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Are you currently on your period?</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    </div>
+
+
+
+
     <div class="display_user_info" id="cal-heatmap-placeholder"></div>
 	</div>
 
