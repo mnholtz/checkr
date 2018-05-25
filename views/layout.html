@@ -25,6 +25,7 @@
          HTML5 elements & feature detects -->
     <script src="{{=URL('static','js/modernizr-2.8.3.min.js')}}"></script>
     <script src="{{=URL('static','css/checkr.css')}}"></script>
+    <script src="{{=URL('static','css/index.css')}}"></script>
     <!-- <script src="{{=URL('static', 'js/vue.js')}}"></script> -->
 
     <script type="text/javascript" src="//d3js.org/d3.v3.min.js"></script>
@@ -40,17 +41,17 @@
   </head>
   <body>
     <!-- Navbar ======================================= -->
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color:#FFD560">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="/checkr/">
-	  <img src="/checkr/static/images/logo.png" width="50" />
-	      checkr
+	  <img src="/checkr/static/images/checkr-icon2.png" width="40" height="40" />
+	      Checkr
 	  </a>
-      <div class="collapse navbar-collapse">    
+      <div class="collapse navbar-collapse">
         {{if 'auth' in globals():}}
-        <ul class="navbar-nav navbar-right ml-auto">  
+        <ul class="navbar-nav navbar-right ml-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	          <img src="{{if auth.user:}}{{=URL(auth.user.profile_picture)}}{{pass}}"/>
@@ -67,10 +68,10 @@
             </div>
           </li>
         </ul>
-          <li class="nav-item"> 
+          <li class="nav-item">
           	{{if auth.user:}}{{=auth.user.username}}{{else:}}login{{pass}}
           </li>
-        </ul>        
+        </ul>
         {{pass}}
       </div>
     </nav>

@@ -1,0 +1,47 @@
+div.heat-map-container{
+  margin-left: 10px;
+  /*background-color: #ECF0F1;*/
+  align-content: center;
+
+}
+div.heat-map-container div.calendar-btns{
+  margin-left: 40px;
+}
+
+div.calendar-btns button#cal-heatmap-previous.btn{
+  margin: 5px;
+  background-color: #ECF0F1;
+  align-items: center;
+}
+
+div.calendar-btns button#cal-heatmap-next.btn{
+  margin: 5px;
+  background-color: #ECF0F1;
+  align-items: center;
+}
+
+div.heat-map-container div#cal-heatmap{
+  margin: 20px;
+  border-color: #ECF0F1;
+  border-style: solid;
+  /*background-color: blue;*/
+}
+
+div#accordionExample.accordion div#category-card.card{
+  margin: 5px;
+}
+
+div#accordionExample.accordion div.card-header{
+  background-color: #ECF0F1;
+}
+div#accordionExample.accordion div.card-body{
+  margin: 10px;
+}
+
+div#accordionExample.accordion div.form-group.form-check{
+  margin-left: 20px;
+}
+
+div#accordionExample.accordion div.btn.btn-primary{
+  margin: 5px;
+}
