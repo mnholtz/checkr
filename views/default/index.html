@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="static/css/index.css">
 <!-- <script src="{{=URL('static','static/css/index.css')}}"></script> -->
 
-<div class="row justify-content-center">
+<div id="test" class="row justify-content-center">
 	<div class="col-4 m-3">
 		{{if 'message' in globals():}}
 		<h2>{{=message}}</h2>
@@ -51,7 +51,7 @@
       </div>
     </div>
 	</div>
-	<div class="col-4 m-3">
+	<div class="col-4 m-3" id="navlist">
 		<h2>Navigation</h2>
     <div class="accordion" id="accordionExample">
       <div class="card" id="category-card">

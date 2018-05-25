@@ -54,7 +54,7 @@
         <ul class="navbar-nav navbar-right ml-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	          <img src="{{if auth.user:}}{{=URL(auth.user.profile_picture)}}{{pass}}"/>
+	            {{if auth.user:}}{{=auth.user.username}}{{else:}}login{{pass}}
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               {{if auth.user:}}
@@ -67,11 +67,15 @@
               {{pass}}
             </div>
           </li>
+<<<<<<< HEAD
         </ul>
           <li class="nav-item">
           	{{if auth.user:}}{{=auth.user.username}}{{else:}}login{{pass}}
           </li>
         </ul>
+=======
+        </ul>        
+>>>>>>> a0ea4c54c4c915f06899d2913d44304b8c664146
         {{pass}}
       </div>
     </nav>

@@ -1,5 +1,5 @@
 *.pyc
-/databases
-/sessions
-/errors
-/uploads
+databases/
+sessions/
+errors/
+uploads/
