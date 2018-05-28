@@ -15,37 +15,37 @@
       <!-- <div id="cal-heatmap" style="position:relative;" ></div> -->
       <div id="cal-heatmap" style="position:relative; max-height: 800px; max-width:350px; overflow: auto;" >
         <script type="text/javascript">
-        	var cal = new CalHeatMap();
-        	cal.init({
-                  //  itemSelector: "#verticalOrientation-b",
-                //    itemSelector: "#tooltip-b",
-                    itemSelector: "#cal-heatmap",
-                    domain: "month",
-                    subDomain: "x_day",
-                    cellSize: 30, legendCellSize: 15,
-                    cellPadding: 3, legendCellPadding: 3,
-                    domainGutter: 10,
-                    subDomainTextFormat: "%d",
-                    domainDynamicDimension: false,
-                    verticalOrientation: true,
-                    tooltip: true,
-                    legendVerticalPosition: "left",
-                  	nextSelector: "#cal-heatmap-next",
-                  	previousSelector: "#cal-heatmap-previous",
-                  	itemNamespace: "domainDynamicDimension",
-                  //  verticalOrientation: true,
-                    // itemSelector: "#tooltip-b",
-                  //  tooltip: true,
-                    label: {
-  		                 position: "top"
-  	                },
-                    onClick: function(date, nb) {
-                      console.log("you clicked on " + date);
-                  		$("#cal-heatmap-placeholder").html("You just clicked <br/>on <b>" +
-                  			date + "</b> <br/>with <b>" +
-                  			(nb === null ? "unknown" : nb) + "</b> items"
-                  		);
-                  	}
+          var cal = new CalHeatMap();
+          cal.init({
+            // itemSelector: "#verticalOrientation-b",
+            // itemSelector: "#tooltip-b",
+            itemSelector: "#cal-heatmap",
+            domain: "month",
+            subDomain: "x_day",
+            cellSize: 30, legendCellSize: 15,
+            cellPadding: 3, legendCellPadding: 3,
+            domainGutter: 10,
+            subDomainTextFormat: "%d",
+            domainDynamicDimension: false,
+            verticalOrientation: true,
+            tooltip: true,
+            legendVerticalPosition: "left",
+            nextSelector: "#cal-heatmap-next",
+            previousSelector: "#cal-heatmap-previous",
+            itemNamespace: "domainDynamicDimension",
+            // verticalOrientation: true,
+            // itemSelector: "#tooltip-b",
+            // tooltip: true,
+            label: {
+                 position: "top"
+            },
+            onClick: function(date, nb) {
+              console.log("you clicked on " + date);
+              $("#cal-heatmap-placeholder").html("You just clicked <br/>on <b>" +
+                date + "</b> <br/>with <b>" +
+                (nb === null ? "unknown" : nb) + "</b> items"
+              );
+            }
           });
         </script>
       </div>
