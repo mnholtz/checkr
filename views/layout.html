@@ -26,6 +26,7 @@
     <script src="{{=URL('static','js/modernizr-2.8.3.min.js')}}"></script>
     <link rel="stylesheet" href="{{=URL('static','css/checkr.css')}}"/>
     <link rel="stylesheet" href="{{=URL('static','css/index.css')}}"/>
+    <link rel="stylesheet" href="{{=URL('static','css/layout.css')}}"/>
     <!-- <script src="{{=URL('static', 'js/vue.js')}}"></script> -->
 
     <script type="text/javascript" src="//d3js.org/d3.v3.min.js"></script>
@@ -41,14 +42,25 @@
   </head>
   <body>
     <!-- Navbar ======================================= -->
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color:#FFD560">
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color:#FFD560;">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="/checkr/">
-	  <img src="/checkr/static/images/checkr-icon2.png" width="40" height="40" />
-	      Checkr
-	  </a>
+	       <img src="/checkr/static/images/checkr-icon2.png" width="40" height="40" />
+	        Checkr
+  	  </a>
+      <div class="profile_pic navbar-toggler-right">
+        {{if auth.user:}}
+          {{if auth.user.profile_picture:}}
+            <img class="user_profile_pic" src="{{=URL('default', 'download', args=auth.user.profile_picture)}}"/>
+          {{else:}}
+            <!-- <i class="fas fa-user-circle"></i> -->
+            <!-- <p>no profile pic</p> -->
+            {{pass}}
+        {{else:}}
+          {{pass}}
+      </div>
       <div class="collapse navbar-collapse">
         {{if 'auth' in globals():}}
         <ul class="navbar-nav navbar-right ml-auto">
