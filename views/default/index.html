@@ -1,4 +1,11 @@
 {{extend 'layout.html'}}
+
+{{block head}}
+<script>
+	var add_category_url = "{{=URL('api', 'add_category', user_signature=True)}}";
+	var get_categories_url = "{{=URL('api', 'get_categories', user_signature=True)}}";
+</script>
+{{end}}
 <link rel="stylesheet" href="static/css/index.css">
 <div id="test" class="row justify-content-center">
 	<div class="col-4 m-3">
@@ -51,7 +58,15 @@
 	{{if auth.user:}}
 		<h2>Categories</h2>
 			You don't have any data! Start by adding a category.
-			<button class="btn btn-primary">Add</button>
+			<div id='vue_object'>
+				<input id="category_name" type='text' name='name'/>
+				<button v-on:click='add_category(category_name.value)' class="btn btn-primary">Add</button>
+				<ul>
+					<li v-for="category in categories">
+						${ category.name }
+					</li>
+				</ul>
+			</div>
 	{{pass}}
 	{{if 'category' in globals():}}
     <div class="accordion" id="accordionExample">

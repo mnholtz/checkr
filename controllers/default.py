@@ -57,8 +57,3 @@ def download():
     http://..../[app]/default/download/[filename]
     """
     return response.download(request, db)
-    
-@auth.requires_login()
-@auth.requires_signature()
-def add_category():
-	pass
