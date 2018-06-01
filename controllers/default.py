@@ -61,3 +61,4 @@ def download():
 @auth.requires_login()
 @auth.requires_signature()
 def add_category():
+	pass
