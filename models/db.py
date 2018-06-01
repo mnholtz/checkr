@@ -92,7 +92,7 @@ auth = Auth(db, host_names=configuration.get('host.names'))
 # create all tables needed by auth, maybe add a list of extra fields
 # -------------------------------------------------------------------------
 auth.settings.extra_fields['auth_user'] = [Field('profile_picture', 'upload')]
-auth.define_tables(username=True, signature=False)
+auth.define_tables(username=True, signature=True)
 db.auth_user.first_name.readable = db.auth_user.first_name.writable = False
 db.auth_user.last_name.readable = db.auth_user.last_name.writable = False
 
@@ -156,14 +156,17 @@ if configuration.get('scheduler.enabled'):
 # auth.enable_record_versioning(db)
 db.define_table('category', Field('name', 'string'),
 							Field('unit', 'string'))
+							
 db.define_table('range_entry', Field('category', 'reference category'),
 								Field('auth_user', 'reference auth_user'),
 								Field('entry', 'double'),
 								Field('entry_date', 'datetime'))
+								
 db.define_table('bool_entry', Field('category', 'reference category'),
 								Field('auth_user', 'reference auth_user'),
 								Field('entry', 'boolean'),
 								Field('entry_date', 'datetime'))
+								
 db.define_table('startend_entry', Field('category', 'reference category'),
 								Field('auth_user', 'reference auth_user'),
 								Field('start_date', 'datetime'),

@@ -6,7 +6,8 @@
 
 # ---- example index page ----
 def index():
-    return dict(message=T('Welcome to checkr!'))
+	categories = db(db.category).select()
+	return dict(categories=categories)
 
 
 # ---- API (example) -----
@@ -56,3 +57,7 @@ def download():
     http://..../[app]/default/download/[filename]
     """
     return response.download(request, db)
+    
+@auth.requires_login()
+@auth.requires_signature()
+def add_category():

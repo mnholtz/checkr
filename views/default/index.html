@@ -1,11 +1,7 @@
 {{extend 'layout.html'}}
 <link rel="stylesheet" href="static/css/index.css">
-<!-- <script src="{{=URL('static','static/css/index.css')}}"></script> -->
-
 <div id="test" class="row justify-content-center">
 	<div class="col-4 m-3">
-		{{if 'message' in globals():}}
-		<h2>{{=message}}</h2>
     <div class="heat-map-container" style="margin:10px;">
       <div class="calendar-btns" style="float:none; margin-bottom:20px;">
         <button class="btn" id="cal-heatmap-previous">Previous</button>
@@ -52,7 +48,12 @@
     </div>
 	</div>
 	<div class="col-4 m-3" id="navlist">
-		<h2>Navigation</h2>
+	{{if auth.user:}}
+		<h2>Categories</h2>
+			You don't have any data! Start by adding a category.
+			<button class="btn btn-primary">Add</button>
+	{{pass}}
+	{{if 'category' in globals():}}
     <div class="accordion" id="accordionExample">
       <div class="card" id="category-card">
         <div class="card-header" id="heading-temperature">
@@ -114,10 +115,7 @@
     </div>
     <div class="display_user_info" id="cal-heatmap-placeholder"></div>
   </div>
+  {{pass}}
 	</div>
-
-{{elif 'content' in globals():}}
-{{=content}}
-{{else:}}
-{{=BEAUTIFY(response._vars)}}
-{{pass}}
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+   <script src="{{=URL('static','js/index.js')}}"></script>
