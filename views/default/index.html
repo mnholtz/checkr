@@ -51,13 +51,12 @@
 	</div>
 	<div class="col-4 m-3" id="navlist">
 	{{if auth.user:}}
-		<h2>Categories</h2>
-		<div v-if="!categories.length">
-			You don't have any data! Start by adding a category.
-			<input id="category_name" type='text' name='name'/>
-			<button v-on:click='add_category(category_name.value)' class="btn btn-primary">Add</button>
-		</div>
 		<ul class="list-group">
+			<li class="list-group-item">
+				<div class="d-flex w-100 justify-content-center">
+					<h3>Categories</h3>
+				</div>
+			</li>
 			<li class="list-group-item" v-for="category in categories">
 				<div class="d-flex w-100 justify-content-between">
 					<a href="#" data-toggle="collapse" :data-target="'#collapse' + category.name" aria-expanded="false" aria-controls="'collapse' + category.name">
@@ -66,13 +65,27 @@
 					<i class="fa fa-caret-right"></i>
 				</div>
 				<div class="collapse" :id="'collapse' + category.name">
-				    <p>Add Unit</p>
+				    <label for="name">Add Unit</label>
 				    <input type='text' name="name">
 				</div>
 			</li>
+			<li class="list-group-item">
+				<div class="d-flex w-100 justify-content-center">
+					<a href="#" data-toggle="collapse" data-target="#addCategory" aria-expanded="false" aria-controls="addCategory">
+						<i class="fa fa-plus"></i> 
+					</a>
+				</div>
+				<div class="collapse" id="addCategory">
+				    <label for="categoryName">Category Name</label>
+				    <input id="category_name" type='text' name="categoryName">
+					<button v-on:click='add_category(category_name.value)' class="btn btn-primary btn-sm">Add</button>
+				</div>
+			</li>
 		</ul>
+		<div v-if="!categories" class="d-flex w-100 justify-content-center">
+			<small>You don't have any data! Start by adding a category.</small>
+		</div>
     {{pass}}
-
     </div>
     <div class="display_user_info" id="cal-heatmap-placeholder"></div>
   </div>
