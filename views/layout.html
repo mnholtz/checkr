@@ -27,14 +27,11 @@
     <link rel="stylesheet" href="{{=URL('static','css/checkr.css')}}"/>
     <link rel="stylesheet" href="{{=URL('static','css/index.css')}}"/>
     <link rel="stylesheet" href="{{=URL('static','css/layout.css')}}"/>
-    <!-- <script src="{{=URL('static', 'js/vue.js')}}"></script> -->
 
     <script type="text/javascript" src="//d3js.org/d3.v3.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
 
-    <!-- include vue -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script> -->
     <!-- Favicons -->
 	<script src="https://use.fontawesome.com/eaff2cebc6.js"></script>
     {{include 'web2py_ajax.html'}} <!-- this includes jquery.js, calendar.js/.css and web2py.js -->
@@ -89,10 +86,10 @@
     {{end}}
     <!-- Main ========================================= -->
     <!-- Begin page content -->
-    <div class="container-fluid main-container">
-      {{block center}}
-      {{include}}
-      {{end}}
+    <div id='vue_object' class="container-fluid main-container">
+		    {{block center}}
+		    {{include}}
+		    {{end}}
     </div>
 
     {{block footer}}

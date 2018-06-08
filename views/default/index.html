@@ -1,129 +1,94 @@
 {{extend 'layout.html'}}
+
+{{block head}}
+<script>
+	var add_category_url = "{{=URL('api', 'add_category', user_signature=True)}}";
+	var get_categories_url = "{{=URL('api', 'get_categories', user_signature=True)}}";
+</script>
+{{end}}
+
 {{if auth.user:}}
-	<div id="test" class="row justify-content-center">
-		<div class="col-4 m-3">
-			{{if 'message' in globals():}}
-			<h2>{{=message}}</h2>
-	    <div class="heat-map-container" style="margin:10px;">
-	      <div class="calendar-btns" style="float:none; margin-bottom:20px;">
-	        <button class="btn" id="cal-heatmap-previous">Previous</button>
-	        <button class="btn" id="cal-heatmap-next">Next</button>
-	        <div class="display_legend" id="legend"></div>
-	      </div>
-	      <!-- <div id="cal-heatmap" style="position:relative;" ></div> -->
-	      <div id="cal-heatmap" style="position:relative; max-height: 800px; max-width:350px; overflow: auto;" >
-	        <script type="text/javascript">
-	        	var cal = new CalHeatMap();
-	        	cal.init({
-	                  //  itemSelector: "#verticalOrientation-b",
-	                //    itemSelector: "#tooltip-b",
-	                    itemSelector: "#cal-heatmap",
-	                    domain: "month",
-	                    subDomain: "x_day",
-	                    cellSize: 30, legendCellSize: 15,
-	                    cellPadding: 3, legendCellPadding: 3,
-	                    domainGutter: 10,
-	                    subDomainTextFormat: "%d",
-	                    domainDynamicDimension: false,
-	                    verticalOrientation: true,
-	                    tooltip: true,
-	                    legendVerticalPosition: "left",
-	                  	nextSelector: "#cal-heatmap-next",
-	                  	previousSelector: "#cal-heatmap-previous",
-	                  	itemNamespace: "domainDynamicDimension",
-	                  //  verticalOrientation: true,
-	                    // itemSelector: "#tooltip-b",
-	                  //  tooltip: true,
-	                    label: {
-	  		                 position: "top"
-	  	                },
-	                    onClick: function(date, nb) {
-	                      console.log("you clicked on " + date);
-	                  		$("#cal-heatmap-placeholder").html("You just clicked <br/>on <b>" +
-	                  			date + "</b> <br/>with <b>" +
-	                  			(nb === null ? "unknown" : nb) + "</b> items"
-	                  		);
-	                  	}
-	          });
-	        </script>
-	      </div>
-	    </div>
+<div id="test" class="row justify-content-center">
+	<div class="col-4 m-3">
+    <div class="heat-map-container" style="margin:10px;">
+      <div class="calendar-btns" style="float:none; margin-bottom:20px;">
+        <button class="btn" id="cal-heatmap-previous">Previous</button>
+        <button class="btn" id="cal-heatmap-next">Next</button>
+        <div class="display_legend" id="legend"></div>
+      </div>
+      <!-- <div id="cal-heatmap" style="position:relative;" ></div> -->
+      <div id="cal-heatmap" style="position:relative; max-height: 800px; max-width:350px; overflow: auto;" >
+        <script type="text/javascript">
+        	var cal = new CalHeatMap();
+        	cal.init({
+                    itemSelector: "#cal-heatmap",
+                    domain: "month",
+                    subDomain: "x_day",
+                    cellSize: 30, legendCellSize: 15,
+                    cellPadding: 3, legendCellPadding: 3,
+                    domainGutter: 10,
+                    subDomainTextFormat: "%d",
+                    domainDynamicDimension: false,
+                    verticalOrientation: true,
+                    tooltip: true,
+                    legendVerticalPosition: "left",
+                  	nextSelector: "#cal-heatmap-next",
+                  	previousSelector: "#cal-heatmap-previous",
+                  	itemNamespace: "domainDynamicDimension",
+                    label: {
+  		                 position: "top"
+  	                },
+                    onClick: function(date, nb) {
+                      console.log("you clicked on " + date);
+                  		$("#cal-heatmap-placeholder").html("You just clicked <br/>on <b>" +
+                  			date + "</b> <br/>with <b>" +
+                  			(nb === null ? "unknown" : nb) + "</b> items"
+                  		);
+                  	}
+          });
+        </script>
+      </div>
+    </div>
+	</div>
+	<div class="col-4 m-3" id="navlist">
+		<ul class="list-group">
+			<li class="list-group-item">
+				<div class="d-flex w-100 justify-content-center">
+					<h3>Categories</h3>
+				</div>
+			</li>
+			<li class="list-group-item" v-for="category in categories">
+				<div class="d-flex w-100 justify-content-between">
+					<a href="#" data-toggle="collapse" :data-target="'#collapse' + category.name" aria-expanded="false" aria-controls="'collapse' + category.name">
+						${ category.name }
+					</a>
+					<i class="fa fa-caret-right"></i>
+				</div>
+				<div class="collapse" :id="'collapse' + category.name">
+				    <label for="name">Add Unit</label>
+				    <input type='text' name="name">
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="d-flex w-100 justify-content-center">
+					<a href="#" data-toggle="collapse" data-target="#addCategory" aria-expanded="false" aria-controls="addCategory">
+						<i class="fa fa-plus"></i> 
+					</a>
+				</div>
+				<div class="collapse" id="addCategory">
+				    <label for="categoryName">Category Name</label>
+				    <input id="category_name" type='text' name="categoryName">
+					<button v-on:click='add_category(category_name.value)' class="btn btn-primary btn-sm">Add</button>
+				</div>
+			</li>
+		</ul>
+		<div v-if="!categories" class="d-flex w-100 justify-content-center">
+			<small>You don't have any data! Start by adding a category.</small>
 		</div>
-		<div class="col-4 m-3" id="navlist">
-			<h2>Navigation</h2>
-	    <div class="accordion" id="accordionExample">
-	      <div class="card" id="category-card">
-	        <div class="card-header" id="heading-temperature">
-	          <h5 class="mb-0">
-	            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-temperature" aria-expanded="true" aria-controls="collapse-temperature">
-	              Temperature
-	            </button>
-	          </h5>
-	        </div>
-
-	        <div id="collapse-temperature" class="collapse" aria-labelledby="heading-temperature" data-parent="#accordionExample">
-	          <div class="card-body">
-	            <form>
-	              <div class="form-group">
-	                <label for="category-data-input">Temperature</label>
-	                <input type="float" class="form-control" id="category-data-input" placeholder="Enter your temperature">
-	              </div>
-	              <div class="form-group">
-	                <label for="category-date-input">Date</label>
-	                <input type="date" class="form-control" id="category-date-input" placeholder="Enter the date">
-	              </div>
-	              <button type="submit" class="btn btn-primary">Submit</button>
-	            </form>
-	          </div>
-	        </div>
-	      </div>
-
-	      <div class="card" id="category-card">
-	        <div class="card-header" id="heading-period">
-	          <h5 class="mb-0">
-	            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-period" aria-expanded="true" aria-controls="collapse-period">
-	              Period
-	            </button>
-	          </h5>
-	        </div>
-
-	        <div id="collapse-period" class="collapse" aria-labelledby="heading-period" data-parent="#accordionExample">
-	          <div class="card-body">
-	            <form>
-	              <div class="form-group">
-	                <label for="category-date-input">Start Date</label>
-	                <input type="date" class="form-control" id="category-data-input" placeholder="Start Date">
-	              </div>
-
-	              <div class="form-group">
-	                <label for="category-date-input">End Date</label>
-	                <input type="date" class="form-control" id="category-date-input" placeholder="End Date">
-	              </div>
-	              <div class="form-group form-check">
-	                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-	                <label class="form-check-label" for="exampleCheck1">Are you currently on your period?</label>
-	              </div>
-	              <button type="submit" class="btn btn-primary">Submit</button>
-	            </form>
-	          </div>
-	        </div>
-	      </div>
-
-	    </div>
-	    <div class="display_user_info" id="cal-heatmap-placeholder"></div>
-	  </div>
+    {{pass}}
+    </div>
+    <div class="display_user_info" id="cal-heatmap-placeholder"></div>
+  </div>
 	</div>
-{{else:}}
-	<div id="welcome-message">
-		<h2>Welcome to Checkr!</h2>
-		<br>
-		<h3>Please log in to continue.</h3>
-	</div>
-	{{pass}}
-
-
-{{elif 'content' in globals():}}
-{{=content}}
-{{else:}}
-{{=BEAUTIFY(response._vars)}}
-{{pass}}
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+   <script src="{{=URL('static','js/index.js')}}"></script>
