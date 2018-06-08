@@ -4,3 +4,44 @@ div.profile_pic img.user_profile_pic{
   max-height: 50px;
   border-radius:50%;
 }
+
+body{
+  background-color: #fffdfb;
+}
+
+input.btn.btn-primary{
+  cursor: pointer;
+  color: #fff;
+  background-color: #0275d8;
+  border-color: #0275d8;
+  margin: 10px;
+}
+
+button.btn.btn-default.w2p-form-button{
+  cursor: pointer;
+  color: #fff;
+  background-color: #0275d8;
+  border-color: #0275d8;
+  margin: 10px;
+}
+
+input#auth_user_profile_picture{
+  cursor:pointer;
+  display: block;
+  width: 100%;
+  padding: .5rem .75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #464a4c;
+  background-color: #fff;
+  background-image: none;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+}
