@@ -6,7 +6,7 @@
 
 # ---- example index page ----
 def index():
-	categories = db(db.category).select()
+	categories = db(db.categories).select()
 	return dict(categories=categories)
 
 
