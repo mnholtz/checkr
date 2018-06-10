@@ -50,3 +50,18 @@ function get_categories() {
 	    request.send();
 	});
 }
+
+function add_entry(category_id, form) {
+	var form_data = new FormData(form);
+	form_data.append('category_id', category_id);
+	return new Promise(function(resolve, reject) {
+	    var request = new XMLHttpRequest();
+	    request.open("POST", add_entry_url);
+	    request.onreadystatechange = function() {
+		    if(request.readyState == 4 && request.status == 200) {
+			    resolve(this.response);
+		    }
+	    }
+	    request.send(form_data);
+	});
+}

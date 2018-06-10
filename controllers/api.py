@@ -11,3 +11,7 @@ def get_categories():
 	categories = db().select(db.categories.ALL)
 	print(categories);
 	return response.json(dict(categories=categories))
+	
+@auth.requires_login()
+def add_entry():
+	print(request.vars['entry_date'])
