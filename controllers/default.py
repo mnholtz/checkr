@@ -6,7 +6,8 @@
 
 # ---- example index page ----
 def index():
-    return dict(message=T('Welcome to Checkr!'))
+	categories = db(db.categories).select()
+	return dict(categories=categories)
 
 
 # ---- API (example) -----
