@@ -11,7 +11,7 @@
 	        <div class="display_legend" id="legend"></div>
 	      </div>
 	      <!-- <div id="cal-heatmap" style="position:relative;" ></div> -->
-	      <div id="cal-heatmap" style="position:relative; max-height: 800px; max-width:350px; overflow: auto;" >
+	      <div id="cal-heatmap" >
 	        <script type="text/javascript">
 	        	var cal = new CalHeatMap();
 	        	cal.init({
@@ -22,12 +22,17 @@
 	                    subDomain: "x_day",
 	                    cellSize: 30, legendCellSize: 15,
 	                    cellPadding: 3, legendCellPadding: 3,
-	                    domainGutter: 10,
+	                    domainGutter: 1,
 	                    subDomainTextFormat: "%d",
 	                    domainDynamicDimension: false,
 	                    verticalOrientation: true,
 	                    tooltip: true,
-	                    legendVerticalPosition: "left",
+	                    // legendVerticalPosition: "left",
+											legendVerticalPosition: "center",
+											legendOrientation: "vertical",
+									//		legendMargin: [0,10,0,0],
+											legendMargin: [0, 0, 0, 0],
+											//legendCellPadding: 10,
 	                  	nextSelector: "#cal-heatmap-next",
 	                  	previousSelector: "#cal-heatmap-previous",
 	                  	itemNamespace: "domainDynamicDimension",
@@ -35,7 +40,7 @@
 	                    // itemSelector: "#tooltip-b",
 	                  //  tooltip: true,
 	                    label: {
-	  		                 position: "top"
+	  		                 position: "left"
 	  	                },
 	                    onClick: function(date, nb) {
 	                      console.log("you clicked on " + date);

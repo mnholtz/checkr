@@ -4,6 +4,14 @@ div.heat-map-container{
   align-content: center;
 }
 
+div#cal-heatmap{
+  position:relative;
+  max-height: 800px;
+  min-width: 100%;
+  /*max-width:350px; */
+   overflow: auto;
+}
+
 div.heat-map-container div.calendar-btns{
   margin-left: 25%;
 }
@@ -23,10 +31,10 @@ div.calendar-btns button#cal-heatmap-next.btn{
 div.heat-map-container div#cal-heatmap{
   margin: 20px;
   border-color: #ECF0F1;
-  border-style: double;
+  /*border-style: double;*/
   border-radius: 10px;
-  padding-top: 10px;
-  padding-left: 12.5%;
+  padding-top: 20px;
+  /*padding-left: 12.5%;*/
   /*overflow: auto;*/
   /*padding: 45px;*/
   background-color: #fdfaf3;
