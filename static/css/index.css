@@ -5,8 +5,10 @@ div.heat-map-container{
 }
 
 div#cal-heatmap{
-  position:relative;
+  position: relative;
+  margin: 30px;
   max-height: 800px;
+  /*min-height: 100%;*/
   min-width: 100%;
   /*max-width:350px; */
    overflow: auto;
@@ -17,19 +19,19 @@ div.heat-map-container div.calendar-btns{
 }
 
 div.calendar-btns button#cal-heatmap-previous.btn{
-  margin: 5px;
+  margin-left: 15px;
   background-color: #ECF0F1 !important;
   align-items: center;
 }
 
 div.calendar-btns button#cal-heatmap-next.btn{
-  margin: 5px;
+  margin-left: 25px;
   background-color: #ECF0F1 !important;
   align-items: center;
 }
 
 div.heat-map-container div#cal-heatmap{
-  margin: 20px;
+  /*margin: 20px;*/
   border-color: #ECF0F1;
   /*border-style: double;*/
   border-radius: 10px;
@@ -38,27 +40,4 @@ div.heat-map-container div#cal-heatmap{
   /*overflow: auto;*/
   /*padding: 45px;*/
   background-color: #fdfaf3;
-}
-
-div#accordionExample.accordion div#category-card.card{
-  margin: 5px;
-}
-
-div#accordionExample.accordion div.card-header{
-  background-color: #ECF0F1;
-}
-div#accordionExample.accordion div.card-body{
-  margin: 10px;
-  /*background-color: blue;*/
-}
-/*div#accordionExample.accordion div#heading-temperature{
-  background-color: blue;
-}*/
-
-div#accordionExample.accordion div.form-group.form-check{
-  margin-left: 20px;
-}
-
-div#accordionExample.accordion div.btn.btn-primary{
-  margin: 5px;
 }

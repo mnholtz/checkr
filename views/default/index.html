@@ -16,8 +16,7 @@
         <button class="btn" id="cal-heatmap-next">Next</button>
         <div class="display_legend" id="legend"></div>
       </div>
-      <!-- <div id="cal-heatmap" style="position:relative;" ></div> -->
-      <div id="cal-heatmap" style="position:relative; max-height: 800px; max-width:350px; overflow: auto;" >
+      <div id="cal-heatmap">
         <script type="text/javascript">
         	var cal = new CalHeatMap();
         	cal.init({
@@ -36,11 +35,11 @@
                   	previousSelector: "#cal-heatmap-previous",
                   	itemNamespace: "domainDynamicDimension",
                     label: {
-  		                 position: "top"
+  		                 position: "left"
   	                },
                     onClick: function(date, nb) {
                       console.log("you clicked on " + date);
-                  		$("#cal-heatmap-placeholder").html("You just clicked <br/>on <b>" +
+                  		$("#cal-heatmap").html("You just clicked <br/>on <b>" +
                   			date + "</b> <br/>with <b>" +
                   			(nb === null ? "unknown" : nb) + "</b> items"
                   		);
@@ -87,8 +86,6 @@
 		</div>
     {{pass}}
     </div>
-    <div class="display_user_info" id="cal-heatmap-placeholder"></div>
   </div>
-	</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
    <script src="{{=URL('static','js/index.js')}}"></script>
