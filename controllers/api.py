@@ -9,9 +9,12 @@ def add_category():
 	
 def get_categories():
 	categories = db().select(db.categories.ALL)
-	print(categories);
 	return response.json(dict(categories=categories))
 	
 @auth.requires_login()
 def add_entry():
-	print(request.vars['entry_date'])
+	category_id = request.vars['category_id']
+	entry_date = request.vars['entry_date']
+	entry_value = request.vars['entry_value']
+	id = db.entries.insert(category=category_id, auth_user=auth.user, entry_value=entry_value, entry_date=entry_date)
+	return response.json(dict(entry=db.entries[id]))
