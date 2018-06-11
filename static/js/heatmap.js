@@ -1,10 +1,10 @@
+data = {"1528691203": 3, "1528737833": 1, "1528000002": 0}
+
 var cal = new CalHeatMap();
 cal.init({
         itemSelector: "#cal-heatmap",
-        data: [	{date: 1528691203, value: 0},
-				{date: 1527913602, value: 1},
-				{date: 1528000002, value: 0}],
-		range: 2, legend: [0, 1],
+        data: data,
+		range: 2, legend: [1, 2, 3],
 			legendColors: {
 			min: "#efefef",
 			max: "steelblue",
@@ -20,6 +20,7 @@ cal.init({
         domainGutter: 10,
         subDomainTextFormat: "%d",
         displayLegend: true,
+        legendOrientation: "vertical",
         domainDynamicDimension: false,
         verticalOrientation: true,
         legendVerticalPosition: "top",
@@ -34,3 +35,9 @@ cal.init({
           console.log("you clicked on " + date);
       	}
 });
+
+// Convert strings to date objects
+function date_to_epoch(key) {
+    var epoch_seconds = new Date(key).getTime();
+    return Math.floor (epoch_seconds / 1000);
+}

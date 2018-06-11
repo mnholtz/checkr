@@ -1,0 +1,19 @@
+.heat-map-container {
+
+    .calendar-btns button {
+        &#cal-heatmap-previous.btn, &#cal-heatmap-next.btn {
+            margin: 5px;
+            background-color: #ECF0F1 !important;
+            align-items: center;
+        }
+    }
+
+    #cal-heatmap {
+        padding: 5px;
+        border-color: #000000;
+        border-style: double;
+        border-radius: 10px;
+        padding-top: 10px;
+        background-color: #FFFFFF;
+    }
+}
