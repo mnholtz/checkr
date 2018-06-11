@@ -18,7 +18,8 @@ var app = new Vue({
 	      new_category = await add_category(name);
 	      name = JSON.parse(new_category)['new_category'];
 	      this.categories.push({ name: name });
-    	}
+    	},
+    	delete_category: delete_category
     
   }
 })
@@ -64,4 +65,20 @@ function add_entry(category_id, form) {
 	    }
 	    request.send(form_data);
 	});
+}
+
+function delete_category(category_id) {
+	var form_data = new FormData();
+	form_data.append('category_id', category_id);
+    var request = new XMLHttpRequest();
+    request.open("POST", delete_category_url);
+    request.onreadystatechange = function() {
+	    if(request.readyState == 4 && request.status == 200) {
+		    var success = this.response;
+		    console.log(success);
+		    var i = app.categories.findIndex(category => category.id == category_id);
+		    app.categories.splice(i, 1);
+	    }
+    }
+    request.send(form_data);
 }
