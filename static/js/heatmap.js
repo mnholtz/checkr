@@ -1,5 +1,6 @@
 var cal = new CalHeatMap();
 cal.init({
+		data: [{date: '1527827202', value: 15}],
         itemSelector: "#heatmap",
         domain: "month",
         subDomain: "x_day",
