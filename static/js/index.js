@@ -3,7 +3,7 @@ window.onload = async function() {
 	var categories = JSON.parse(json).categories;
 	for(i = 0; i < categories.length; i++) {
 		category = categories[i];
-		app.categories.push({ name: category.name, id: category.id, unit: category.unit, selected: false });
+		app.categories.push({ name: category.name, id: category.id, unit: category.unit });
 	}
 }
 
@@ -13,6 +13,7 @@ var app = new Vue({
   data: {
 	  categories: [],
 	  entries: [],
+	  selected: null,
   },
   methods: {
       add_category: async function(name) {
@@ -93,6 +94,7 @@ function get_entries(category_id) {
 	    if(request.readyState == 4 && request.status == 200) {
 		    app.entries = get_heatmap_data(JSON.parse(this.response));
 		    cal.update(app.entries);
+		    app.selected = category_id;
 	    }
     }
     request.send(form_data);
