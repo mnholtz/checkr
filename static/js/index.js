@@ -92,7 +92,19 @@ function get_entries(category_id) {
     request.onreadystatechange = function() {
 	    if(request.readyState == 4 && request.status == 200) {
 		    console.log(this.response);
+		    app.entries = get_heatmap_data(JSON.parse(this.response));
+		    cal.update(app.entries);
 	    }
     }
     request.send(form_data);
+}
+
+function get_heatmap_data(entries_json) {
+	var heatmap_data = {};
+	for(i = 0; i < entries_json.entries.length; i++) {
+		var entry = entries_json.entries[i];
+		var epoch_time = new Date(entry.entry_date).getTime().toString()/1000;
+		heatmap_data[epoch_time] = entry.entry_value;
+	}
+	return heatmap_data;
 }
