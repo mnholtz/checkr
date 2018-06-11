@@ -1,3 +1,7 @@
+.category_name:hover {
+	cursor:pointer;
+}
+
 div.heat-map-container{
   position: relative;
   height: 500px;

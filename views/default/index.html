@@ -36,7 +36,7 @@
 			</li>
 			<li class="list-group-item" v-for="category in categories">
 				<div class="d-flex w-100 justify-content-between">
-				<span v-on:click="get_entries(category.id)">${ category.name }</span>
+				<span class="category_name" v-on:click="get_entries(category.id)">${ category.name }</span>
 				<a class="text-dark" href="#" data-toggle="collapse" :data-target="'#collapse' + category.id" aria-expanded="false" aria-controls="'collapse' + category.id"><i class="fa fa-plus"></i></a>
 				</div>
 				<div class="collapse m-3 w-100" :id="'collapse' + category.id">

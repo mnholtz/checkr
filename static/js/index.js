@@ -91,7 +91,6 @@ function get_entries(category_id) {
     request.open("POST", get_entries_url);
     request.onreadystatechange = function() {
 	    if(request.readyState == 4 && request.status == 200) {
-		    console.log(this.response);
 		    app.entries = get_heatmap_data(JSON.parse(this.response));
 		    cal.update(app.entries);
 	    }
