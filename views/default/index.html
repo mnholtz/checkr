@@ -6,6 +6,7 @@
 	var get_categories_url = "{{=URL('api', 'get_categories', user_signature=True)}}";
 	var add_entry_url = "{{=URL('api', 'add_entry', user_signature=True)}}";
 	var delete_category_url = "{{=URL('api', 'delete_category', user_signature=True)}}";
+	var get_entries_url = "{{=URL('api', 'get_entries', user_signature=True)}}";
 </script>
 
 <script type="text/javascript" src="//d3js.org/d3.v3.min.js"></script>
@@ -35,7 +36,7 @@
 			</li>
 			<li class="list-group-item" v-for="category in categories">
 				<div class="d-flex w-100 justify-content-between">
-				<span>${ category.name }</span>
+				<span v-on:click="get_entries(category.id)">${ category.name }</span>
 				<a class="text-dark" href="#" data-toggle="collapse" :data-target="'#collapse' + category.name" aria-expanded="false" aria-controls="'collapse' + category.name"><i class="fa fa-plus"></i></a>
 				</div>
 				<div class="collapse m-3 w-100" :id="'collapse' + category.name">
