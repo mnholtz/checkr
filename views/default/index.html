@@ -6,49 +6,19 @@
 	var get_categories_url = "{{=URL('api', 'get_categories', user_signature=True)}}";
 	var add_entry_url = "{{=URL('api', 'add_entry', user_signature=True)}}";
 </script>
+
+<script type="text/javascript" src="//d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
 {{end}}
 
 {{if auth.user:}}
 	<div id="test" class="row justify-content-center">
-		<div class="col-4 m-3">
-	    <div class="heat-map-container" style="margin:10px;">
-	      <div class="calendar-btns" style="float:none; margin-bottom:20px;">
-	        <button class="btn" id="cal-heatmap-previous">Previous</button>
-	        <button class="btn" id="cal-heatmap-next">Next</button>
-	        <div class="display_legend" id="legend"></div>
-	      </div>
-	      <div id="cal-heatmap">
-	        <script type="text/javascript">
-	        	var cal = new CalHeatMap();
-	        	cal.init({
-	                    itemSelector: "#cal-heatmap",
-	                    domain: "month",
-	                    subDomain: "x_day",
-	                    cellSize: 30, legendCellSize: 15,
-	                    cellPadding: 3, legendCellPadding: 3,
-	                    domainGutter: 10,
-	                    subDomainTextFormat: "%d",
-	                    domainDynamicDimension: false,
-	                    verticalOrientation: true,
-	                    tooltip: true,
-	                    legendVerticalPosition: "left",
-	                  	nextSelector: "#cal-heatmap-next",
-	                  	previousSelector: "#cal-heatmap-previous",
-	                  	itemNamespace: "domainDynamicDimension",
-	                    label: {
-	  		                 position: "left"
-	  	                },
-	                    onClick: function(date, nb) {
-	                      console.log("you clicked on " + date);
-	                  		$("#cal-heatmap").html("You just clicked <br/>on <b>" +
-	                  			date + "</b> <br/>with <b>" +
-	                  			(nb === null ? "unknown" : nb) + "</b> items"
-	                  		);
-	                  	}
-	          });
-	        </script>
-	      </div>
-	    </div>
+	<div class="col-4 m-3">
+		<button class="btn" id="cal-heatmap-previous">Previous</button>
+		<button class="btn" id="cal-heatmap-next">Next</button>
+		<div class="display_legend" id="legend"></div>
+		<div id="heatmap"></div>
 	</div>
 	<div class="col-4 m-3" id="navlist">
 		<ul class="list-group">
@@ -90,7 +60,11 @@
     </div>
     <div class="display_user_info" id="cal-heatmap-placeholder"></div>
   </div>
-	</div>
-	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-   <script src="{{=URL('static','js/index.js')}}"></script>
+</div>
+
+{{ block footer }}
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="{{=URL('static','js/index.js')}}"></script>
+<script src="{{=URL('static','js/heatmap.js')}}"></script>
+{{ end }}
 
