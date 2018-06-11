@@ -11,6 +11,7 @@
 <script type="text/javascript" src="//d3js.org/d3.v3.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
+<link rel="stylesheet" href="{{=URL('static','css/index.css')}}"/>
 {{end}}
 
 {{if auth.user:}}
@@ -18,8 +19,8 @@
 	<div class="col-4 m-3">
 		<div class="heat-map-container">
 			<div class="calendar-btns">
-				<button class="btn" id="cal-heatmap-previous">Previous</button>
-				<button class="btn" id="cal-heatmap-next">Next</button>
+				<button class="btn" id="cal-heatmap-previous"><i class="fa fa-angle-left"></i></button>
+				<button class="btn" id="cal-heatmap-next"><i class="fa fa-angle-right"></i></button>
 				<div class="display_legend" id="legend"></div>
 			</div>
 			<div id="cal-heatmap"></div>
@@ -59,7 +60,7 @@
 				</div>
 			</li>
 		</ul>
-		<div v-if="!categories" class="d-flex w-100 justify-content-center">
+		<div v-show="!categories" class="d-flex w-100 justify-content-center">
 			<small>You don't have any data! Start by adding a category.</small>
 		</div>
     {{pass}}
@@ -73,4 +74,3 @@
 <script src="{{=URL('static','js/index.js')}}"></script>
 <script src="{{=URL('static','js/heatmap.js')}}"></script>
 {{ end }}
-

@@ -1,17 +1,19 @@
 div.heat-map-container{
-  margin-left: 10px;
+  position: relative;
+  height: 100%;
+  width: 100%;
   /*background-color: #ECF0F1;*/
   align-content: center;
 }
 
 div#cal-heatmap{
-  position: relative;
-  margin: 30px;
+  position: absolute;
   max-height: 800px;
   /*min-height: 100%;*/
-  min-width: 100%;
+  width: 100%;
+  height: 100%;
   /*max-width:350px; */
-   overflow: auto;
+  overflow: auto;
 }
 
 div.heat-map-container div.calendar-btns{
