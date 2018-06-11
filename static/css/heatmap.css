@@ -11,5 +11,10 @@
   border-style: double;
   border-radius: 10px;
   padding-top: 10px;
+  background-color: #FFFFFF !important;
+}
+/* line 19, ../sass/heatmap.scss */
+.heat-map-container #cal-heatmap .cal-heatmap-container {
+  align-content: center;
   background-color: #FFFFFF;
 }

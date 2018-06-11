@@ -1,17 +1,25 @@
+<<<<<<< HEAD
 data = {"1528691203": 3, "1528737833": 1, "1528000002": 0}
+=======
+data = {"1528691203": 0, "1527913602": 1, "1528000002": 2};
+>>>>>>> 4b02f3ef095f0d655fa36d03636e6e8b1a856845
 
 var cal = new CalHeatMap();
 cal.init({
         itemSelector: "#cal-heatmap",
         data: data,
-		legend: [1, 2, 3, 4],
+<<<<<<< HEAD
+		range: 2, legend: [1, 2, 3],
+			legendColors: {
+=======
+		legend: [1, 2, 3],
 		legendColors: {
-			min: "#ffeeee",
-			max: "#ff8000",
+>>>>>>> 4b02f3ef095f0d655fa36d03636e6e8b1a856845
+			min: "#efefef",
+			max: "steelblue",
 			empty: "white"
 			// Will use the CSS for the missing keys
 		},
-		range: 2,
         dataType: "json",
         domain: "month",
         subDomain: "x_day",
