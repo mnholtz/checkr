@@ -28,6 +28,6 @@ def delete_category():
 @auth.requires_login()
 def get_entries():
 	category_id = request.vars['category_id']
-	entries = db(db.entries.auth_user == auth.user, db.entries.category == category_id).select()
+	entries = db((db.entries.auth_user == auth.user) & (db.entries.category == category_id)).select()
 	print(entries)
 	return response.json(dict(entries=entries))
