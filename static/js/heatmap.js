@@ -1,18 +1,17 @@
+data = {"1528691203": 0, "1527913602": 1, "1528000002": 2};
+
 var cal = new CalHeatMap();
 cal.init({
         itemSelector: "#cal-heatmap",
-        data: [	{date: 1528691203, value: 0},
-				{date: 1527913602, value: 1},
-				{date: 1528000002, value: 0}],
-		range: 2, legend: [0, 1],
-			legendColors: {
+        data: data,
+		legend: [1, 2, 3],
+		legendColors: {
 			min: "#efefef",
 			max: "steelblue",
 			empty: "white"
 			// Will use the CSS for the missing keys
 		},
         dataType: "json",
-        range: 25,
         domain: "month",
         subDomain: "x_day",
         cellSize: 30, legendCellSize: 15,
