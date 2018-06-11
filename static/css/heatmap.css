@@ -1,0 +1,20 @@
+/* line 4, ../sass/heatmap.scss */
+.heat-map-container .calendar-btns button#cal-heatmap-previous.btn, .heat-map-container .calendar-btns button#cal-heatmap-next.btn {
+  margin: 5px;
+  background-color: #ECF0F1 !important;
+  align-items: center;
+}
+/* line 11, ../sass/heatmap.scss */
+.heat-map-container #cal-heatmap {
+  padding: 5px;
+  border-color: #000000;
+  border-style: double;
+  border-radius: 10px;
+  padding-top: 10px;
+  background-color: #FFFFFF !important;
+}
+/* line 19, ../sass/heatmap.scss */
+.heat-map-container #cal-heatmap .cal-heatmap-container {
+  align-content: center;
+  background-color: #FFFFFF;
+}
