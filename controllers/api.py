@@ -20,3 +20,8 @@ def add_entry():
 	new_entry = db.entries[id]
 	print(new_entry)
 	return response.json(dict(entry=new_entry))
+	
+@auth.requires_login()
+def delete_category():
+	category_id = request.vars['category_id']
+	del db.categories[category_id]
