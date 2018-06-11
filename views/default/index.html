@@ -8,84 +8,84 @@
 {{end}}
 
 {{if auth.user:}}
-<div id="test" class="row justify-content-center">
-	<div class="col-4 m-3">
-    <div class="heat-map-container" style="margin:10px;">
-      <div class="calendar-btns" style="float:none; margin-bottom:20px;">
-        <button class="btn" id="cal-heatmap-previous">Previous</button>
-        <button class="btn" id="cal-heatmap-next">Next</button>
-        <div class="display_legend" id="legend"></div>
-      </div>
-      <div id="cal-heatmap">
-        <script type="text/javascript">
-        	var cal = new CalHeatMap();
-        	cal.init({
-                    itemSelector: "#cal-heatmap",
-                    domain: "month",
-                    subDomain: "x_day",
-                    cellSize: 30, legendCellSize: 15,
-                    cellPadding: 3, legendCellPadding: 3,
-                    domainGutter: 10,
-                    subDomainTextFormat: "%d",
-                    domainDynamicDimension: false,
-                    verticalOrientation: true,
-                    tooltip: true,
-                    legendVerticalPosition: "left",
-                  	nextSelector: "#cal-heatmap-next",
-                  	previousSelector: "#cal-heatmap-previous",
-                  	itemNamespace: "domainDynamicDimension",
-                    label: {
-  		                 position: "left"
-  	                },
-                    onClick: function(date, nb) {
-                      console.log("you clicked on " + date);
-                  		$("#cal-heatmap").html("You just clicked <br/>on <b>" +
-                  			date + "</b> <br/>with <b>" +
-                  			(nb === null ? "unknown" : nb) + "</b> items"
-                  		);
-                  	}
-          });
-        </script>
-      </div>
-    </div>
-	</div>
-	<div class="col-4 m-3" id="navlist">
-		<ul class="list-group">
-			<li class="list-group-item">
-				<div class="d-flex w-100 justify-content-center">
-					<h3>Categories</h3>
-				</div>
-			</li>
-			<li class="list-group-item" v-for="category in categories">
-				<div class="d-flex w-100 justify-content-between">
-					<a href="#" data-toggle="collapse" :data-target="'#collapse' + category.name" aria-expanded="false" aria-controls="'collapse' + category.name">
-						${ category.name }
-					</a>
-					<i class="fa fa-caret-right"></i>
-				</div>
-				<div class="collapse" :id="'collapse' + category.name">
-				    <label for="name">Add Unit</label>
-				    <input type='text' name="name">
-				</div>
-			</li>
-			<li class="list-group-item">
-				<div class="d-flex w-100 justify-content-center">
-					<a href="#" data-toggle="collapse" data-target="#addCategory" aria-expanded="false" aria-controls="addCategory">
-						<i class="fa fa-plus"></i>
-					</a>
-				</div>
-				<div class="collapse" id="addCategory">
-				    <label for="categoryName">Category Name</label>
-				    <input id="category_name" type='text' name="categoryName">
-					<button v-on:click='add_category(category_name.value)' class="btn btn-primary btn-sm">Add</button>
-				</div>
-			</li>
-		</ul>
-		<div v-if="!categories" class="d-flex w-100 justify-content-center">
-			<small>You don't have any data! Start by adding a category.</small>
+	<div id="test" class="row justify-content-center">
+		<div class="col-4 m-3">
+	    <div class="heat-map-container" style="margin:10px;">
+	      <div class="calendar-btns" style="float:none; margin-bottom:20px;">
+	        <button class="btn" id="cal-heatmap-previous">Previous</button>
+	        <button class="btn" id="cal-heatmap-next">Next</button>
+	        <div class="display_legend" id="legend"></div>
+	      </div>
+	      <div id="cal-heatmap">
+	        <script type="text/javascript">
+	        	var cal = new CalHeatMap();
+	        	cal.init({
+	                    itemSelector: "#cal-heatmap",
+	                    domain: "month",
+	                    subDomain: "x_day",
+	                    cellSize: 30, legendCellSize: 15,
+	                    cellPadding: 3, legendCellPadding: 3,
+	                    domainGutter: 10,
+	                    subDomainTextFormat: "%d",
+	                    domainDynamicDimension: false,
+	                    verticalOrientation: true,
+	                    tooltip: true,
+	                    legendVerticalPosition: "left",
+	                  	nextSelector: "#cal-heatmap-next",
+	                  	previousSelector: "#cal-heatmap-previous",
+	                  	itemNamespace: "domainDynamicDimension",
+	                    label: {
+	  		                 position: "left"
+	  	                },
+	                    onClick: function(date, nb) {
+	                      console.log("you clicked on " + date);
+	                  		$("#cal-heatmap").html("You just clicked <br/>on <b>" +
+	                  			date + "</b> <br/>with <b>" +
+	                  			(nb === null ? "unknown" : nb) + "</b> items"
+	                  		);
+	                  	}
+	          });
+	        </script>
+	      </div>
+	    </div>
 		</div>
-    {{pass}}
-    </div>
-  </div>
+		<div class="col-4 m-3" id="navlist">
+			<ul class="list-group">
+				<li class="list-group-item">
+					<div class="d-flex w-100 justify-content-center">
+						<h3>Categories</h3>
+					</div>
+				</li>
+				<li class="list-group-item" v-for="category in categories">
+					<div class="d-flex w-100 justify-content-between">
+						<a href="#" data-toggle="collapse" :data-target="'#collapse' + category.name" aria-expanded="false" aria-controls="'collapse' + category.name">
+							${ category.name }
+						</a>
+						<i class="fa fa-caret-right"></i>
+					</div>
+					<div class="collapse" :id="'collapse' + category.name">
+					    <label for="name">Add Unit</label>
+					    <input type='text' name="name">
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="d-flex w-100 justify-content-center">
+						<a href="#" data-toggle="collapse" data-target="#addCategory" aria-expanded="false" aria-controls="addCategory">
+							<i class="fa fa-plus"></i>
+						</a>
+					</div>
+					<div class="collapse" id="addCategory">
+					    <label for="categoryName">Category Name</label>
+					    <input id="category_name" type='text' name="categoryName">
+						<button v-on:click='add_category(category_name.value)' class="btn btn-primary btn-sm">Add</button>
+					</div>
+				</li>
+			</ul>
+			<div v-if="!categories" class="d-flex w-100 justify-content-center">
+				<small>You don't have any data! Start by adding a category.</small>
+			</div>
+	    {{pass}}
+	    </div>
+	  </div>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
    <script src="{{=URL('static','js/index.js')}}"></script>

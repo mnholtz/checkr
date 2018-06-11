@@ -2,39 +2,38 @@
 
     <div class="row justify-content-center">
 	    {{if auth.user:}}
-		<div class="col-4">
-			<h2>Settings</h2>
-			<ul>
-			<li><a href="/checkr/default/user/profile">
-				Profile
-			</a></li>
-			<li><a href="/checkr/default/user/change_password">
-				Change Password
-			</a></li>
-			<li><a href="#">
-				App Credentials
-			</a></li>
-			</ul>
-	    </div>
-		{{pass}}
+    		<div class="col-4">
+    			<h2 id="settings_title">Settings</h2>
+    			<ul class="list-group" id="settings_list">
+    			<li class="list-group-item"><a href="/checkr/default/user/profile">
+    				Profile
+    			</a></li>
+    			<li class="list-group-item"><a href="/checkr/default/user/change_password">
+    				Change Password
+    			</a></li>
+    			<li class="list-group-item"><a href="#">
+    				App Credentials
+    			</a></li>
+    			</ul>
+    	   </div>
+    		{{pass}}
         <div id="web2py_user_form" class="col-4">
-			<h2>
-				{{=T('Sign Up') if request.args(0) == 'register' else T('Log In') if request.args(0) == 'login' else T(request.args(0).replace('_',' ').title())}}
-			</h2>
-			{{
-			if request.args(0)=='login':
-				if not 'register' in auth.settings.actions_disabled:
-					form.add_button(T('Sign Up'),URL(args='register', vars={'_next': request.vars._next} if request.vars._next else None),_class='btn btn-default')
-				pass
-				if not 'request_reset_password' in auth.settings.actions_disabled:
-					form.add_button(T('Lost Password'),URL(args='request_reset_password'),_class='btn btn-default')
-				pass
-			pass
-			=form
-			}}
+    			<h2 id="form_title">
+    				{{=T('Sign Up') if request.args(0) == 'register' else T('Log In') if request.args(0) == 'login' else T(request.args(0).replace('_',' ').title())}}
+    			</h2>
+    			{{
+    			if request.args(0)=='login':
+    				if not 'register' in auth.settings.actions_disabled:
+    					form.add_button(T('Sign Up'),URL(args='register', vars={'_next': request.vars._next} if request.vars._next else None),_class='btn btn-default')
+    				pass
+    				if not 'request_reset_password' in auth.settings.actions_disabled:
+    					form.add_button(T('Lost Password'),URL(args='request_reset_password'),_class='btn btn-default')
+    				pass
+    			pass
+    			=form
+    			}}
         </div>
     </div>
-
 
 {{block page_js}}
 <script>
