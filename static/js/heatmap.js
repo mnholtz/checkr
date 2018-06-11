@@ -1,6 +1,6 @@
 var cal = new CalHeatMap();
 cal.init({
-        itemSelector: "#heatmap",
+        itemSelector: "#cal-heatmap",
         domain: "month",
         subDomain: "x_day",
         cellSize: 30, legendCellSize: 15,

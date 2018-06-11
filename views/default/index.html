@@ -15,10 +15,14 @@
 {{if auth.user:}}
 	<div id="test" class="row justify-content-center">
 	<div class="col-4 m-3">
-		<button class="btn" id="cal-heatmap-previous">Previous</button>
-		<button class="btn" id="cal-heatmap-next">Next</button>
-		<div class="display_legend" id="legend"></div>
-		<div id="heatmap"></div>
+		<div class="heat-map-container">
+			<div class="calendar-btns">
+				<button class="btn" id="cal-heatmap-previous">Previous</button>
+				<button class="btn" id="cal-heatmap-next">Next</button>
+				<div class="display_legend" id="legend"></div>
+			</div>
+			<div id="cal-heatmap"></div>
+		</div>
 	</div>
 	<div class="col-4 m-3" id="navlist">
 		<ul class="list-group">
