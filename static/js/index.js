@@ -11,7 +11,8 @@ var app = new Vue({
   el: '#vue_object',
   delimiters: ['${', '}'],
   data: {
-	  categories: []
+	  categories: [],
+	  entries: [],
   },
   methods: {
       add_category: async function(name) {
@@ -78,6 +79,19 @@ function delete_category(category_id) {
 		    console.log(success);
 		    var i = app.categories.findIndex(category => category.id == category_id);
 		    app.categories.splice(i, 1);
+	    }
+    }
+    request.send(form_data);
+}
+
+function get_entries(category_id) {
+	var form_data = new FormData();
+	form_data.append('category_id', category_id);
+    var request = new XMLHttpRequest();
+    request.open("POST", get_entries_url);
+    request.onreadystatechange = function() {
+	    if(request.readyState == 4 && request.status == 200) {
+		    console.log(this.response);
 	    }
     }
     request.send(form_data);

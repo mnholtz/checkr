@@ -18,10 +18,16 @@ def add_entry():
 	entry_value = request.vars['entry_value']
 	id = db.entries.insert(category=category_id, auth_user=auth.user, entry_value=entry_value, entry_date=entry_date)
 	new_entry = db.entries[id]
-	print(new_entry)
 	return response.json(dict(entry=new_entry))
 	
 @auth.requires_login()
 def delete_category():
 	category_id = request.vars['category_id']
 	del db.categories[category_id]
+	
+@auth.requires_login()
+def get_entries():
+	category_id = request.vars['category_id']
+	entries = db(db.entries.auth_user == auth.user, db.entries.category == category_id).select()
+	print(entries)
+	return response.json(dict(entries=entries))
