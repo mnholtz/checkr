@@ -84,8 +84,15 @@
 			<div v-if="!categories" class="d-flex w-100 justify-content-center">
 				<small>You don't have any data! Start by adding a category.</small>
 			</div>
-	    {{pass}}
 	    </div>
 	  </div>
+{{else:}}
+	<div id="welcome_page">
+		<h1 id="welcome_title">Welcome to Checkr.</h1>
+		<br>
+		<h4 id="welcome_subtitle">Track your lifestyle. Your lifestyle, in check.</h4>
+		<h5 id="sign_in_indicator">Sign in to continue.</h5>
+</div>
+	{{pass}}
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
    <script src="{{=URL('static','js/index.js')}}"></script>
