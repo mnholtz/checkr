@@ -7,6 +7,7 @@ cal.init({
         cellPadding: 3, legendCellPadding: 3,
         domainGutter: 10,
         subDomainTextFormat: "%d",
+        displayLegend: false,
         domainDynamicDimension: false,
         verticalOrientation: true,
         legendVerticalPosition: "top",
