@@ -33,7 +33,19 @@ cal.init({
             },
         onClick: function(date, nb) {
           console.log("you clicked on " + date);
-      	}
+      	},
+        afterLoadData: function (timestamps) {
+          var offset = new Date().getTimezoneOffset() * 60;
+          var results = {};
+          for (var timestamp in timestamps) {
+            var commitCount = timestamps[timestamp];
+            timestamp = parseInt(timestamp, 10);
+            console.log(timestamp)
+            results[timestamp + offset] = commitCount;
+          };
+          return results;
+        }
+
 });
 
 // Convert strings to date objects
