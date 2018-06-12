@@ -5,6 +5,8 @@ window.onload = async function() {
 		category = categories[i];
 		app.categories.push({ name: category.name, id: category.id, unit: category.unit });
 	}
+	app.selected = app.categories[0].id;
+	get_entries(app.categories[0].id);
 }
 
 var app = new Vue({
@@ -63,6 +65,7 @@ function add_entry(category_id, form) {
 	    request.onreadystatechange = function() {
 		    if(request.readyState == 4 && request.status == 200) {
 			    resolve(this.response);
+			    get_entries(category_id);
 		    }
 	    }
 	    request.send(form_data);
