@@ -30,6 +30,15 @@ cal.init({
             },
         onClick: function(date, nb) {
           console.log("you clicked on " + date);
+          var category_id = app.selected;
+          var datefield = document.getElementById('datefield' + category_id);
+          var d = new Date(date);
+          var str = d.getFullYear() + "-" + ('0'  + (d.getMonth()+1)).slice(-2) + "-" + ('0'  + d.getDate()).slice(-2);
+          var epoch = new Date(str).getTime() / 1000;
+          var collapse_div = document.getElementById('collapse' + app.selected);
+          collapse_div.className += ' show';
+          console.log(collapse_div.className);
+          datefield.value = str;
       	},
         afterLoadData: function (timestamps) {
           var offset = new Date().getTimezoneOffset() * 60;

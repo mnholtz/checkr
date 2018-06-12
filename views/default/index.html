@@ -42,7 +42,7 @@
 				<div class="collapse m-3 w-100" :id="'collapse' + category.id">
 					<form :id="'form' + category.id">
 				    	<input class="m-1 w-100 form-control form-control-sm" type='number' value="0.00" name="entry_value">
-						<input class="m-1 w-100 form-control form-control-sm" type='date' name="entry_date">
+						<input :id="'datefield' + category.id" class="m-1 w-100 form-control form-control-sm" type='date' name="entry_date">
 					</form>
 					<button class="m-1 w-100 btn btn-primary btn-sm" data-toggle="collapse" :data-target="'#collapse' + category.id" aria-expanded="false" aria-controls="'collapse' + category.id" v-on:click="add_entry(category.id, document.getElementById('form' + category.id))">Add</button>
 					<button class="m-1 w-100 btn btn-danger btn-sm" data-toggle="modal" :data-target="'#deleteModal' + category.id">Delete Category</button>
