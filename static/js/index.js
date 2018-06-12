@@ -8,8 +8,8 @@ window.onload = async function() {
 	}
 	if(app.categories[0]) {
 		app.selected = app.categories[0].id;
+		setTimeout(function(){ get_entries(app.categories[0].id); }, 1000);
 	}
-	setTimeout(function(){ get_entries(app.categories[0].id); }, 1000);
 }
 
 var app = new Vue({
