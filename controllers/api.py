@@ -25,7 +25,6 @@ def delete_category():
 	category_id = request.vars['category_id']
 	del db.categories[category_id]
 	
-@auth.requires_login()
 def get_entries():
 	category_id = request.vars['category_id']
 	entries = db((db.entries.auth_user == auth.user) & (db.entries.category == category_id)).select()
