@@ -26,6 +26,8 @@ var app = new Vue({
 	      category = JSON.parse(new_category)['new_category'];
 	      var hex = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
 	      this.categories.push({ name: category.name, id: category.id, hex: hex });
+	      this.selected = category.id;
+	      get_entries(category.id);
     	},
     	delete_category: delete_category
     
