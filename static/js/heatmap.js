@@ -7,7 +7,6 @@ cal.init({
 			min: "#ffeeee",
 			max: "#ff8000",
 			empty: "white"
-			// Will use the CSS for the missing keys
 		},
 		range: 2,
         dataType: "json",

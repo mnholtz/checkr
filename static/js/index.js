@@ -3,7 +3,8 @@ window.onload = async function() {
 	var categories = JSON.parse(json).categories;
 	for(i = 0; i < categories.length; i++) {
 		category = categories[i];
-		app.categories.push({ name: category.name, id: category.id, unit: category.unit });
+		var hex = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+		app.categories.push({ name: category.name, id: category.id, unit: category.unit, hex: hex });
 	}
 	app.selected = app.categories[0].id;
 	get_entries(app.categories[0].id);
@@ -99,6 +100,11 @@ function get_entries(category_id) {
 		    app.entries = get_heatmap_data(JSON.parse(this.response));
 		    cal.update(app.entries);
 		    app.selected = category_id;
+		    
+	    	var i = app.categories.findIndex(category => category.id == category_id);
+		    console.log(cal.options.legendColors.max);
+		    console.log(app.categories[i].hex);
+		    cal.setLegend(cal.options.legend, ["white", app.categories[i].hex]);
 	    }
     }
     request.send(form_data);
