@@ -16,7 +16,7 @@ def add_entry():
 	category_id = request.vars['category_id']
 	entry_date = request.vars['entry_date']
 	entry_value = request.vars['entry_value']
-	id = db.entries.update_or_insert(db.entries.entry_date == entry_date, category=category_id, auth_user=auth.user, entry_value=entry_value, entry_date=entry_date)
+	id = db.entries.update_or_insert((db.entries.entry_date == entry_date) & (db.entries.category == category_id), category=category_id, auth_user=auth.user, entry_value=entry_value, entry_date=entry_date)
 	new_entry = db.entries[id]
 	return response.json(dict(entry=new_entry))
 	
