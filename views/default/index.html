@@ -36,8 +36,8 @@
 			</li>
 			<li class="list-group-item" v-for="category in categories">
 				<div class="d-flex w-100 justify-content-between">
-				<span class="category_name" v-on:click="get_entries(category.id)">${ category.name }</span>
-				<button class="btn btn-sm" data-toggle="collapse" :data-target="'#collapse' + category.id" aria-expanded="false" aria-controls="'collapse' + category.id"><i class="fa fa-plus"></i></button>
+				<span class="category_name" v-on:click="get_entries(category.id)">${ category.name } <i class="fa fa-eye" v-if="selected == category.id"></i></span>
+				<button class="btn btn-sm" data-toggle="collapse" :data-target="'#collapse' + category.id" aria-expanded="false" aria-controls="'collapse' + category.id"><i class="fa fa-edit"></i></button>
 				</div>
 				<div class="collapse m-3 w-100" :id="'collapse' + category.id">
 					<form :id="'form' + category.id">
@@ -82,8 +82,8 @@
 				</div>
 			</li>
 		</ul>
-		<div v-show="!categories" class="d-flex w-100 justify-content-center">
-			<small>You don't have any data! Start by adding a category.</small>
+		<div>
+			<small>To get started: click a category to view it on the map.</small>
 		</div>
     {{pass}}
     </div>
