@@ -2,7 +2,7 @@ var cal = new CalHeatMap();
 cal.init({
         itemSelector: "#cal-heatmap",
         data: {},
-		legend: [1, 2, 3, 4],
+		legend: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		legendColors: {
 			min: "#ededed",
 			max: "#ededed",
@@ -17,7 +17,7 @@ cal.init({
         domainGutter: 10,
         subDomainTextFormat: "%d",
         displayLegend: true,
-        legendOrientation: "vertical",
+//        legendOrientation: "vertical",
         domainDynamicDimension: false,
         verticalOrientation: true,
         legendVerticalPosition: "top",
