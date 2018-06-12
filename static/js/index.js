@@ -6,8 +6,9 @@ window.onload = async function() {
 		var hex = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
 		app.categories.push({ name: category.name, id: category.id, unit: category.unit, hex: hex });
 	}
+	
 	app.selected = app.categories[0].id;
-	get_entries(app.categories[0].id);
+	setTimeout(function(){ get_entries(app.categories[0].id); }, 1000);
 }
 
 var app = new Vue({
