@@ -1,9 +1,7 @@
-data = {"1528691203": 3, "1528737833": 1, "1528000002": 0}
-
 var cal = new CalHeatMap();
 cal.init({
         itemSelector: "#cal-heatmap",
-        data: data,
+        data: {},
 		legend: [1, 2, 3, 4],
 		legendColors: {
 			min: "#ffeeee",
