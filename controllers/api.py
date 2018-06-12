@@ -5,7 +5,7 @@ def add_category():
 	name = request.vars['name']
 	id = db.categories.insert(name=name)
 	new_category = db.categories[id]
-	return response.json(dict(new_category=new_category.name))
+	return response.json(dict(new_category=new_category))
 	
 def get_categories():
 	categories = db().select(db.categories.ALL)

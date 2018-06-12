@@ -20,8 +20,8 @@ var app = new Vue({
   methods: {
       add_category: async function(name) {
 	      new_category = await add_category(name);
-	      name = JSON.parse(new_category)['new_category'];
-	      this.categories.push({ name: name });
+	      category = JSON.parse(new_category)['new_category'];
+	      this.categories.push({ name: category.name, id: category.id });
     	},
     	delete_category: delete_category
     
@@ -58,6 +58,7 @@ function get_categories() {
 
 function add_entry(category_id, form) {
 	var form_data = new FormData(form);
+	console.log(form);
 	form_data.append('category_id', category_id);
 	return new Promise(function(resolve, reject) {
 	    var request = new XMLHttpRequest();
