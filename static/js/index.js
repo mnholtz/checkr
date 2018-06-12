@@ -104,7 +104,7 @@ function get_entries(category_id) {
 	    	var i = app.categories.findIndex(category => category.id == category_id);
 		    console.log(cal.options.legendColors.max);
 		    console.log(app.categories[i].hex);
-		    cal.setLegend(cal.options.legend, ["white", app.categories[i].hex]);
+		    cal.setLegend(cal.options.legend, ['#f2f2f2', app.categories[i].hex]);
 	    }
     }
     request.send(form_data);
