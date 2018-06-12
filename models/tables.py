@@ -11,7 +11,8 @@
 # after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)
 db.define_table('categories', Field('name', 'string'),
-							Field('unit', 'string'))
+							Field('unit', 'string'),
+							Field('auth_user', 'reference auth_user'))
 							
 db.define_table('entries', Field('category', 'reference categories'),
 								Field('auth_user', 'reference auth_user'),

@@ -3,12 +3,12 @@ from gluon.utils import web2py_uuid
 @auth.requires_login()
 def add_category():
 	name = request.vars['name']
-	id = db.categories.insert(name=name)
+	id = db.categories.insert(name=name, auth_user=auth.user)
 	new_category = db.categories[id]
 	return response.json(dict(new_category=new_category))
 	
 def get_categories():
-	categories = db().select(db.categories.ALL)
+	categories = db(db.categories.auth_user == auth.user).select()
 	return response.json(dict(categories=categories))
 	
 @auth.requires_login()

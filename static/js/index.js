@@ -22,7 +22,8 @@ var app = new Vue({
       add_category: async function(name) {
 	      new_category = await add_category(name);
 	      category = JSON.parse(new_category)['new_category'];
-	      this.categories.push({ name: category.name, id: category.id });
+	      var hex = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+	      this.categories.push({ name: category.name, id: category.id, hex: hex });
     	},
     	delete_category: delete_category
     
