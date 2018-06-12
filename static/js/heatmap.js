@@ -4,8 +4,8 @@ cal.init({
         data: {},
 		legend: [1, 2, 3, 4],
 		legendColors: {
-			min: "#ffeeee",
-			max: "#ff8000",
+			min: "#ededed",
+			max: "#ededed",
 			empty: "white"
 		},
 		range: 2,
